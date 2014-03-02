@@ -23,7 +23,8 @@
   "keywords": [
     "home",
     "automation",
-    "server"
+    "server",
+    "portal"
   ],
   "dependencies": {
     "adaro": "0.1.x",
