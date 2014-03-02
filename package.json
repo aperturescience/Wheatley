@@ -33,7 +33,9 @@
     "adaro": "0.1.x",
     "dustjs-linkedin": "*",
     "dustjs-helpers": "*",
-    "wheatley-formatters": "gillesdemey/wheatley-formatters"
+    "wheatley-formatters": "gillesdemey/wheatley-formatters",
+    "mdns": "~1.1.0",
+    "moment": "~2.5.1"
   },
   "analyze": false,
   "devDependencies": {},
