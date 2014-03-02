@@ -15,7 +15,10 @@ var app = express();
 
 // we're using PayPal's dustjs engine for Express
 // https://github.com/paypal/adaro
-app.engine('dust', adaro.dust());
+
+var cache = app.get('env') === 'development' ? false : true;
+
+app.engine('dust', adaro.dust({ cache: cache }));
 
 app.set('port', process.env.PORT || 3333);
 app.set('views', path.join(__dirname, '../public'));
@@ -32,9 +35,8 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, '../public/assets')));
 
 // development only
-if ('development' === app.get('env')) {
+if ('development' === app.get('env'))
   app.use(express.errorHandler());
-}
 
 /**
  * Configure routes format

@@ -28,7 +28,12 @@
   "dependencies": {
     "lodash": "^2.4.1",
     "lodash-node": "^2.4.1",
-    "express": "3.4.8"
+    "express": "3.4.x",
+    "hjs": "*",
+    "adaro": "0.1.x",
+    "dustjs-linkedin": "*",
+    "dustjs-helpers": "*",
+    "wheatley-formatters": "gillesdemey/wheatley-formatters"
   },
   "analyze": false,
   "devDependencies": {},
