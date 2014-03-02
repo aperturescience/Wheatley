@@ -60,7 +60,6 @@ function getMacAddress(uuid) {
 exports.networkInterfaces = function () {
 
   var ifaces = [];
-
   _.forIn(os.networkInterfaces(), function (value, key) {
     ifaces.push({
       'uuid': key,

@@ -35,7 +35,8 @@
     "lodash-node": "^2.4.1",
     "mdns": "~1.1.0",
     "moment": "~2.5.1",
-    "wheatley-formatters": "gillesdemey/wheatley-formatters"
+    "wheatley-formatters": "gillesdemey/wheatley-formatters",
+    "async": "^0.2.10"
   },
   "analyze": false,
   "devDependencies": {},

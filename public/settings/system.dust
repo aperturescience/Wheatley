@@ -38,6 +38,9 @@
       <tr>
         <td><strong>{uuid}</strong></td>
       </tr>
+      <tr>
+        <td>Ether</td><td>{ether}</td>
+      </tr>
         {#addresses}
         <tr>
           <td>{family}</td><td>{address}</td>
