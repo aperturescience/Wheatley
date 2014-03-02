@@ -26,16 +26,16 @@
     "server"
   ],
   "dependencies": {
-    "lodash": "^2.4.1",
-    "lodash-node": "^2.4.1",
+    "adaro": "0.1.x",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
     "express": "3.4.x",
     "hjs": "*",
-    "adaro": "0.1.x",
-    "dustjs-linkedin": "*",
-    "dustjs-helpers": "*",
-    "wheatley-formatters": "gillesdemey/wheatley-formatters",
+    "lodash": "^2.4.1",
+    "lodash-node": "^2.4.1",
     "mdns": "~1.1.0",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "wheatley-formatters": "gillesdemey/wheatley-formatters"
   },
   "analyze": false,
   "devDependencies": {},
