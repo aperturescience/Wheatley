@@ -1,0 +1,12 @@
+{
+  "name": "wheatley-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.x",
+    "hjs": "*",
+    "adaro": "0.1.x",
+    "dustjs-linkedin": "*",
+    "dustjs-helpers": "*"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "wheatley",
+  "preferGlobal": true,
+  "version": "0.1.0",
+  "author": "Gilles De Mey <gilles@demey.io>",
+  "description": "a simple zero-configuration home automation controller",
+  "contributors": [
+    {
+      "name": "Michiel De Mey",
+      "email": "michiel@demey.io"
+    },
+    {
+      "name": "Seppe Stas",
+      "email": "seppestas@gmail.com"
+    }
+  ],
+  "scripts": {
+    "start": "node ./init.js",
+    "test": "",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "keywords": [
+    "home",
+    "automation",
+    "server"
+  ],
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "lodash-node": "^2.4.1",
+    "express": "3.4.8"
+  },
+  "analyze": false,
+  "devDependencies": {},
+  "bundledDependencies": [],
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
