@@ -13,7 +13,7 @@ var index     = require('./controllers/index'),
 
 var app = express();
 
-// we're using PayPal's dustjs engine for Express
+// We're using PayPal's dustjs engine for Express
 // https://github.com/paypal/adaro
 
 var cache = app.get('env') === 'development' ? false : true;
@@ -34,7 +34,7 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, '../public/assets')));
 
-// development only
+// Development only
 if ('development' === app.get('env'))
   app.use(express.errorHandler());
 

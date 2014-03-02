@@ -13,7 +13,7 @@ exports.index = function (req, res) {
 
 exports.system = function (req, res) {
 
-  var sysinfo = require('../../core/utility/sysinfo');
+  var sysinfo = require('../../core/utility/system');
 
   sysinfo = _.clone(sysinfo.systemInfo());
   sysinfo.totalmem = format.bytes(sysinfo.totalmem);

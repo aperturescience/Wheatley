@@ -1,7 +1,7 @@
 'use strict';
 
 var bonjour         = require('./discovery/bonjour'),
-    sysinfo         = require('./utility/sysinfo'),
+    sysinfo         = require('./utility/system'),
     moment          = require('moment');
 
 /**
