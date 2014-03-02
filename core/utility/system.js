@@ -5,7 +5,8 @@ var _         = require('lodash-node'),
     util      = require('util'),
     os        = require('os'),
     pjson     = require('../../package.json'),
-    exec      = require('child_process').exec;
+    exec      = require('child_process').exec,
+    async     = require('async');
 
 /**
  * System Information Object
@@ -42,16 +43,12 @@ sysinfo.prototype.numCpus = function () {
   return os.cpus().length;
 };
 
-function getMacAddress(uuid) {
-  exec('ifconfig ' + uuid + ' | grep ether', function (err, stdout, stderr) {
+exports.macAddress = function (uuid, callback) {
+  exec('ifconfig ' + uuid + ' | awk \'/ether/ {print $2}\'', function (err, stdout, stderr) {
     if (stdout === null || stdout === '') return; // silent fail
-    if (err !== null) {
-      console.error('Error retrieving MAC addres for', uuid, 'details:', err);
-      return;
-    }
-    return stdout;
+    if (err === null) callback(stdout);
   });
-}
+};
 
 /**
  * Retreives all network interfaces on the host device, map to a usable array
@@ -60,13 +57,18 @@ function getMacAddress(uuid) {
 exports.networkInterfaces = function () {
 
   var ifaces = [];
+
   _.forIn(os.networkInterfaces(), function (value, key) {
     ifaces.push({
       'uuid': key,
-      'addresses': value,
-      'ether': getMacAddress(key)
+      'addresses': value
     });
   });
+
+  // TODO: get mac address for NICs
+  // async.each(ifaces, macAddress, function () {
+
+  // });
 
   return ifaces;
 };
