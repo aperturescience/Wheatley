@@ -7,6 +7,7 @@
     "hjs": "*",
     "adaro": "0.1.x",
     "dustjs-linkedin": "*",
-    "dustjs-helpers": "*"
+    "dustjs-helpers": "*",
+    "wheatley-formatters": "gillesdemey/wheatley-formatters"
   }
 }

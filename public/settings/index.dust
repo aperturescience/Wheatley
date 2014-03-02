@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wheatley — Settings</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Wheatley Settings</h1>
+  <ul>
+    <li><a href="/settings/system">System Information</a></li>
+    <li><a href="/settings/devices">List of Devices</a></li>
+  </ul>
+</body>
+</html>
