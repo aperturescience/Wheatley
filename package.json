@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "start": "node ./init.js",
-    "test": "",
+    "test": "mocha test/",
     "predeploy": "echo This will be run before deploying the app",
     "postdeploy": "echo This will be run after deploying the app"
   },
@@ -40,7 +40,9 @@
     "async": "^0.2.10"
   },
   "analyze": false,
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^1.17.1"
+  },
   "bundledDependencies": [],
   "license": "MIT",
   "engines": {
