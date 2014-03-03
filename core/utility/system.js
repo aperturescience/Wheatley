@@ -23,7 +23,6 @@ var sysinfo = function () {
   this.release    = os.release();
   this.totalmem   = os.totalmem();
   this.type       = os.type();
-  this.ifaces     = exports.networkInterfaces();
   this.software   = exports.software();
 };
 
@@ -44,9 +43,13 @@ sysinfo.prototype.numCpus = function () {
 };
 
 exports.macAddress = function (uuid, callback) {
+
   exec('ifconfig ' + uuid + ' | awk \'/ether/ {print $2}\'', function (err, stdout, stderr) {
-    if (stdout === null || stdout === '') return; // silent fail
-    if (err === null) callback(stdout);
+    if (stdout === null || stdout === '' || err) {
+      callback(null); // silent fail
+    } else {
+      callback(stdout);
+    }
   });
 };
 
@@ -54,7 +57,7 @@ exports.macAddress = function (uuid, callback) {
  * Retreives all network interfaces on the host device, map to a usable array
  * @return [{[string]: [object]}] [an array of network interfaces]
  */
-exports.networkInterfaces = function () {
+exports.networkInterfaces = function (callback) {
 
   var ifaces = [];
 
@@ -65,12 +68,18 @@ exports.networkInterfaces = function () {
     });
   });
 
-  // TODO: get mac address for NICs
-  // async.each(ifaces, macAddress, function () {
 
-  // });
+  async.each(ifaces, function (iface, callback) {
 
-  return ifaces;
+    exports.macAddress(iface.uuid, function (ether) {
+      iface.ether = ether;
+      callback();
+    });
+
+  }, function (err) {
+    callback(ifaces);
+  });
+
 };
 
 
@@ -79,8 +88,15 @@ exports.networkInterfaces = function () {
  * @return {[type]} [description]
  * @todo  retrieve data to plot to a chart (freemem, loadavg, etc.)
  */
-exports.systemInfo = function () {
-  return new sysinfo();
+exports.systemInfo = function (callback) {
+
+  var info = new sysinfo();
+
+  exports.networkInterfaces(function (ifaces) {
+    info.ifaces = ifaces;
+    callback(info);
+  });
+
 };
 
 exports.software = function () {

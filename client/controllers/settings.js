@@ -1,7 +1,6 @@
 'use strict';
 
-var _         = require('lodash-node'),
-    format    = require('wheatley-formatters');
+var format    = require('wheatley-formatters');
 
 exports.index = function (req, res) {
   res.render('settings/index');
@@ -15,12 +14,16 @@ exports.system = function (req, res) {
 
   var sysinfo = require('../../core/utility/system');
 
-  sysinfo = _.clone(sysinfo.systemInfo());
-  sysinfo.totalmem = format.bytes(sysinfo.totalmem);
-  sysinfo.clockSpeed = format.frequency(sysinfo.clockSpeed);
+  sysinfo.systemInfo(function renderPage(info) {
 
-  res.render('settings/system', {
-    sysinfo: sysinfo,
-    software: sysinfo.software
+    info.totalmem = format.bytes(info.totalmem);
+    info.clockSpeed = format.frequency(info.clockSpeed);
+
+    res.render('settings/system', {
+      sysinfo: info,
+      software: info.software
+    });
+
   });
+
 };
