@@ -24,6 +24,7 @@ var sysinfo = function () {
   this.totalmem   = os.totalmem();
   this.type       = os.type();
   this.software   = exports.software();
+  this.uuid       = process.env.WHEATLEY_SERIAL || '00-00-00-00-00';
 };
 
 sysinfo.prototype.toString = function () {
@@ -44,7 +45,8 @@ sysinfo.prototype.numCpus = function () {
 
 exports.macAddress = function (uuid, callback) {
 
-  exec('ifconfig ' + uuid + ' | awk \'/ether/ {print $2}\'', function (err, stdout, stderr) {
+  exec('ifconfig ' + uuid + ' | awk \'/ether/ {print $2}\'',
+  function (err, stdout, stderr) {
     if (stdout === null || stdout === '' || err) {
       callback(null); // silent fail
     } else {
@@ -102,6 +104,9 @@ exports.systemInfo = function (callback) {
 exports.software = function () {
   return {
     name    : pjson.name,
-    version : pjson.version
+    version : pjson.version,
+    vendor  : {
+      author: pjson.author
+    }
   };
 };

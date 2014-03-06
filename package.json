@@ -37,7 +37,9 @@
     "mdns": "^1.1.0",
     "moment": "~2.5.1",
     "wheatley-formatters": "gillesdemey/wheatley-formatters",
-    "async": "^0.2.10"
+    "async": "^0.2.10",
+    "socket.io": "^0.9.16",
+    "socket.io-client": "^0.9.16"
   },
   "analyze": false,
   "devDependencies": {
