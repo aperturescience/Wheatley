@@ -1,6 +1,6 @@
 'use strict';
 
-var sysinfo   = require('../core/utility/system'),
+var sysinfo   = require('node-sysinfo'),
     io        = require('socket.io-client'),
     settings  = require('../config/settings.json'),
     socket;

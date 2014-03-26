@@ -12,7 +12,7 @@ exports.index = function (req, res) {
 
 exports.system = function (req, res) {
 
-  var sysinfo = require('../../core/utility/system');
+  var sysinfo = require('node-sysinfo');
 
   sysinfo.systemInfo(function renderPage(info) {
 

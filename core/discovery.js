@@ -1,7 +1,7 @@
 'use strict';
 
 var bonjour         = require('./discovery/bonjour'),
-    sysinfo         = require('./utility/system'),
+    sysinfo         = require('node-sysinfo'),
     moment          = require('moment');
 
 

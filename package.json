@@ -39,7 +39,8 @@
     "wheatley-formatters": "gillesdemey/wheatley-formatters",
     "async": "^0.2.10",
     "socket.io": "^0.9.16",
-    "socket.io-client": "^0.9.16"
+    "socket.io-client": "^0.9.16",
+    "node-sysinfo": "git://github.com/aperturescience/node-sysinfo.git"
   },
   "analyze": false,
   "devDependencies": {
